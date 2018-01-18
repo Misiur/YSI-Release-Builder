@@ -38,7 +38,7 @@ Promise.all([
 .then(() => console.log('Copying finished'))
 .then(() => fs.remove(YSI_WRAPPER_DIR))
 .then(() => console.log('Starting removing all git related files'))
-.then(() => new Promise(resolve => glob(`${BUILD_DIR}/**/.git*`, (err, files) => {
+.then(() => new Promise(resolve => glob(`{${BUILD_DIR}/**/.git*,${BUILD_DIR}/**/pawn.json}`, (err, files) => {
   if (err) {
     throw err;
   }
